@@ -7,17 +7,17 @@ import Forecast from "../Forecast/Forecast";
 import UseForecast from "../../hooks/hooks";
 
 
+
 const Page = () => {
     const {isForm, isError, isForecast, submitRequest, submitChange} = UseForecast()
 
     const onSubmit  = (value) =>{
-        //console.log(value)
         submitRequest(value)
     }
     const OnRepeatSubmit =(value)=>{
-
         submitChange(value)
     }
+
     return (
         <Fragment>
             <Header/>

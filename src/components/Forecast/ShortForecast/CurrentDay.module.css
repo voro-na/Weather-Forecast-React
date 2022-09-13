@@ -2,7 +2,7 @@
     background-color: #2d387f;
     border-radius: 15px;
     overflow: hidden;
-    background: url("./background.png");
+    background: url("background.png");
     background-size: cover;
     display: grid;
     grid-template-rows: 1fr 4fr auto;

@@ -1,9 +1,8 @@
 import styles from "./Description.module.css";
 
-const Description = (props) => {
+const DayForecastDescription = (props) => {
     return (
         <div className={styles.description}>
-{/*            <div>Temperature: {props.data.temperature}°C</div>*/}
             <div className={styles.items}>
                 <span className={styles.title}>Temperature: </span>
                 <span className={styles.value}>{props.data.temperature}°C</span>
@@ -32,4 +31,4 @@ const Description = (props) => {
         </div>
     )
 }
-export default Description
+export default DayForecastDescription

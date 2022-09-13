@@ -1,6 +1,7 @@
-import React, {useState} from "react";
-import DescriptionComponent from "../DataForecast/DescriptionComponent";
-import ForecastComponent from "../DataForecast/ForecastComponent";
+import {useState} from "react";
+import DescriptionComponent from "../redux/DescriptionComponent";
+import ForecastComponent from "../redux/ForecastComponent";
+import axios from "axios";
 
 const UseForecast = () => {
     const [isForm, setForm] = useState(true)
@@ -9,11 +10,15 @@ const UseForecast = () => {
 
     const FetchData = async (location) => {
         const link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=946a8e175f3599d95569877ca02d99a1`
-        const result = await fetch(`${link}`)
-        const data = await result.json()
-        data.cod === '404' ? setError('city not found') : setError(false);
 
-        return data
+        return await axios.get(link)
+            .then(response => {
+                setError(false)
+                return response.data
+            })
+            .catch(err => {
+                setError('city not found')
+            })
     }
 
     const submitChange = async () => {
@@ -23,7 +28,7 @@ const UseForecast = () => {
 
     const submitRequest = async (location) => {
         const data = await FetchData(location)
-        if (data.cod === '404' || !data)
+        if (!data)
             return
         setForm(false);
         setForecast(true);
@@ -44,6 +49,7 @@ const UseForecast = () => {
 
         const CurentDay = DescriptionComponent(DescriptionComponentData);
         const ForecastDescription = ForecastComponent(ForecastComponentData);
+
 
         setForecast({CurentDay, ForecastDescription})
 

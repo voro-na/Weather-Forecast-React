@@ -1,11 +1,9 @@
 import styles from "./CurrentDay.module.css";
 
 const CurrentDay = (props) => {
-    //console.log(props.data.description);
     const onSubmit = (e) => {
         e.preventDefault();
         props.OnRepeatSubmit();
-
     }
   return (
       <div className={styles.curentDay}>
