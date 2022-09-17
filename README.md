@@ -29,4 +29,4 @@ Weather app gathers data from OpenWeatherMap, their public API.
 ![screenshot](TDvwmEJcmNo.jpg)
 ***
 ### Deployment
-https://voro-na.github.io/forecast/
+https://voro-na.github.io/Weather-Forecast-React/
