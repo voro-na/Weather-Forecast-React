@@ -1,13 +1,15 @@
 import styles from './Form.module.css'
 import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {submitRequest} from "../../redux/actions";
 
-
-const Form = (props) => {
+const Form = () => {
     const [location, setLocation] = useState('');
+    const dispatch =useDispatch()
     const onSubmit = (e) => {
         e.preventDefault();
         if (location ==="" || !location ) return
-        props.submitChange(location);
+        dispatch(submitRequest(location))
     }
     return (
         <form onSubmit={onSubmit}>

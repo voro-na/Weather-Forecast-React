@@ -2,15 +2,14 @@ import styles from './Forecast.module.css'
 import CurrentDay from "./ShortForecast/CurrentDay";
 import Description from "./DetailedForecast/Description";
 
-const Forecast = (props) => {
-    const data = props.data
 
+const Forecast = () => {
     return (
         <div className={styles.forecast}>
-            <CurrentDay data={data.CurentDay} OnRepeatSubmit={props.OnRepeatSubmit}/>
-            <Description data={data.ForecastDescription}/>
+            <CurrentDay />
+            <Description />
         </div>
     )
 }
 
-export default Forecast
+export  default Forecast

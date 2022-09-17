@@ -1,7 +1,18 @@
-import {combineReducers, legacy_createStore} from "redux";
-import {DescriptionReducer} from "./DescriptionComponent";
-let reducers =combineReducers({description: DescriptionReducer})
+import {combineReducers, compose, legacy_createStore, applyMiddleware} from "redux";
+import {formReducer} from "./FormReducer";
+import thunk from "redux-thunk";
+import {errorReducer} from "./ErrorReducer";
+import {forecastReducer} from "./ForecastReducer";
 
-let store = legacy_createStore(reducers)
+export const reducers = combineReducers({
+    form: formReducer,
+    error: errorReducer,
+    forecast: forecastReducer
+})
+
+let store = legacy_createStore(reducers, compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+))
 
 export default store

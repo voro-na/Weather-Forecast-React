@@ -17,11 +17,16 @@ Weather app gathers data from OpenWeatherMap, their public API.
 ## Tech stack
 - Javascript, CSS, HTML
 - React.js
-- Hooks
+- React Hooks
+- Function component
+- Modal styles 
+- React-router-dom
+- Redux, Redux-thunk, React-Redux
+- Axios
 
 ***
- ## Screenshots
-![img.png](img.png)![img_1.png](img_1.png)
+ ## Screenshot
+![screenshot](TDvwmEJcmNo.jpg)
 ***
 ### Deployment
-https://voro-na.github.io/weather-forecast/
+https://voro-na.github.io/forecast/

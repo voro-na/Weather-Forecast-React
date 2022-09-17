@@ -4,30 +4,25 @@ import Header from "../Header/Header";
 import Error from "../Error/Error";
 import Form from "../Form/Form";
 import Forecast from "../Forecast/Forecast";
-import UseForecast from "../../hooks/hooks";
+import {connect} from "react-redux";
 
-
-
-const Page = () => {
-    const {isForm, isError, isForecast, submitRequest, submitChange} = UseForecast()
-
-    const onSubmit  = (value) =>{
-        submitRequest(value)
-    }
-    const OnRepeatSubmit =(value)=>{
-        submitChange(value)
-    }
-
+const Page = (props) => {
     return (
         <Fragment>
             <Header/>
             <div className={styles.box}>
-                {isForm && <Form submitChange={onSubmit} />}
-                {isError && <Error/>}
-                {isForecast && <Forecast data={isForecast} OnRepeatSubmit={OnRepeatSubmit}/>}
+                {props.form && <Form />}
+                {props.error && <Error/>}
+                {props.forecast && <Forecast  />}
             </div>
         </Fragment>
     )
 }
+const mapStateToProps = state =>({
+    form: state.form.form,
+    error: state.error.err,
+    forecast: state.forecast.forecast,
 
-export default Page
+})
+export default connect(mapStateToProps, null)(Page)
+

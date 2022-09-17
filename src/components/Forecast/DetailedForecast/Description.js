@@ -7,11 +7,12 @@ const Description = (props) => {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <Link to="/day" className={styles.link}>Daily Forecast</Link>
-                <Link to="/week" className={styles.link}>Weekly Forecast</Link>
+                <Link to="/day" className={styles.link}>Daily forecast</Link>
+                <Link to="/week" className={styles.link}>5 day forecast</Link>
             </header>
             <Routes>
                 <Route path='/day' element={<DayForecastDescription data = {props.data}/>}/>
+                <Route path='*' element={<DayForecastDescription data = {props.data}/>}/>
                 <Route path='/week' element={<WeeklyForecast data = {props.data}/>}/>
             </Routes>
 
